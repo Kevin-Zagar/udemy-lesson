@@ -5,6 +5,20 @@ import Button from "./Button_Component/Button.js";
 import Panel from "./Panel_Component/Panel.js";
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            name: "Ligma",
+            content: "Joe"
+        }
+
+        setTimeout(() => {
+            this.setState({name: "Balls", content: "Mama"})
+        }, 3000);
+    }
+
     render() {
         return (
             <div className="App">
@@ -18,6 +32,7 @@ class App extends Component {
                 <Panel title="Noch eine">
                     <Button label="Klick mich"></Button>
                 </Panel>
+                <Panel title={this.state.name} content={this.state.content}></Panel>
             </div>
         );
     }

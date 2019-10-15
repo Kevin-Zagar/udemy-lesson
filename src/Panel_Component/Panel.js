@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import "./Panel.css";
 
 class Panel extends Component {
-    render(){
+    render() {
         console.log(this);
-        return(
+        return (
             <div className="Panel">
                 <h4 className="Panel-title">{this.props.title}</h4>
-                <div className ="Panel-content">{this.props.children}</div>
+                <div className="Panel-content">{this.props.content}</div>
             </div>
         )
     }
