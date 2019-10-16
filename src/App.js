@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-
-import './App.css';
 import Button from "./Button_Component/Button.js";
 import Panel from "./Panel_Component/Panel.js";
+import './App.css';
 
 class App extends Component {
 
@@ -11,12 +10,19 @@ class App extends Component {
 
         this.state = {
             name: "Ligma",
-            content: "Joe"
+            content: "Joe",
+            changingTitle: "Welt"
         }
 
         setTimeout(() => {
             this.setState({name: "Balls", content: "Mama"})
         }, 3000);
+
+        this.changeName = this.changeName.bind(this);
+    }
+
+    changeName() {
+        this.setState({changingTitle: "Venus"})
     }
 
     render() {
@@ -30,9 +36,11 @@ class App extends Component {
                 <Panel title="Überschrift" content="Test"></Panel>
                 <br></br>
                 <Panel title="Noch eine">
-                    <Button label="Klick mich"></Button>
+                    <button label="Klick mich"></button>
                 </Panel>
                 <Panel title={this.state.name} content={this.state.content}></Panel>
+                <h2>Hallo {this.state.changingTitle}</h2>
+                <button onClick={this.changeName}>Verändere den Namen</button>
             </div>
         );
     }
